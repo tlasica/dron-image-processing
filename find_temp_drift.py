@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-
 """
 python3 find_temp_drift.py <directory>
 
@@ -26,6 +25,12 @@ def calculate_fit_means(img, fit_size):
 
 
 def analyze(input_dir, fit_size):
+    """
+    Go through the list of files .tif in given directory
+    for each file:
+        - calculate head_mean and tail_mean
+        - compare current tail_mean with previous image head_mean
+    """
     assert 0 < fit_size < 1
     tif_files = sorted([f for f in os.listdir(input_dir) if f.endswith('.tif')])
     last_head = None
