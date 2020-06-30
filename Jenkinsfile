@@ -6,7 +6,7 @@ pipeline {
         cron('H/15 * * * *')
     }
 
-    agent none
+    agent any
 
     stages {
         stage('build') {
