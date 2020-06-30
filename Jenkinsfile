@@ -6,7 +6,9 @@ pipeline {
         cron('H/15 * * * *')
     }
 
-    agent { any }
+    agent {
+        docker { image 'python:3.5.2' }
+    }
 
     stages {
         stage('build') {
